@@ -30,3 +30,9 @@
 - 이미 조회한 데이터는 캐싱을 통해 관리 **(최대한 간단하게 로컬 캐시로 구현할 것)**
 
 ## 선택적 요구사항
+- TypeScript 사용
+- 가상돔 만들어서 사용하기 혹은 DIFF 알고리즘 이용하기
+- **Observer Pattern** 이용하여 State가 변경될 때 자동 렌더링 구현
+- frontend 코드를 webpack으로 빌드하여 production code 생성하기
+- 이미지에 Lazy Loading 사용하기
+- webpack에 scss 연도하여 사용하기
