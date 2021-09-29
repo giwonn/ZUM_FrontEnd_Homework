@@ -1,4 +1,4 @@
-# ZUM_HOMEWORK
+# ZUM_FrontEnd_Homework
 
 ## 기술 스택
 - Front-end
