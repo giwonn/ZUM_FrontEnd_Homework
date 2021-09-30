@@ -2,10 +2,10 @@
   "name": "zum_frontend_homework",
   "version": "1.0.0",
   "description": "FrontEnd Developer Applicant - Giwon Lim",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "build": "webpack -w",
-    "start": "nodemon ./app.js"
+    "start": "nodemon ./server.js"
   },
   "dependencies": {
     "core-js": "^3.18.1",
@@ -17,6 +17,7 @@
     "@babel/plugin-proposal-class-properties": "^7.14.5",
     "@babel/preset-env": "^7.15.6",
     "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.3.0",
     "html-webpack-plugin": "^5.3.2",
     "mini-css-extract-plugin": "^2.3.0",

@@ -1,0 +1,1 @@
+{"version":3,"file":"style.css","mappings":";;;AAAA;IACI,WAAW;AACf,C","sources":["webpack://zum_frontend_homework/./src/style.css"],"sourcesContent":["h1 {\r\n    color: blue;\r\n}"],"names":[],"sourceRoot":""}
