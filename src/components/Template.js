@@ -1,13 +1,20 @@
-import Component from './Components.js';
+import Component from './core/Components.js';
 
 class Template extends Component {
 
     render({ title, description }) {
-        this.div.innerHTML = `
-            <h1>${title}</h1>
+        this._target.innerHTML = `
+            <h1 class='title'>${title}</h1>
             <p>${description}</p>
         `;
     };
+
+    setEvent() {
+        this._target.querySelector('.title').addEventListener('click', (e) => {
+            alert("이벤트 발생");
+        });
+    }
+
 }
 
 export default Template;
