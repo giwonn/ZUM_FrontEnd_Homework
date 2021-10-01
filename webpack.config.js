@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const webpack = require("webpack");
 
 module.exports = {
   mode: "development",
@@ -11,6 +12,14 @@ module.exports = {
     path: path.resolve(__dirname, "public"),
     publicPath: "http://localhost:3000/public" // 미들웨어 장소
   },
+  // devServer: {
+  //   contentBase: "public",
+  //   overlay: true,
+  //   stats: {
+  //     colors: true
+  //   },
+  //   hot: true
+  // },
   module: {
     rules: [
       {
@@ -19,7 +28,9 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env"],
+            presets: [
+              ["@babel/preset-env", { modules: false }] // modules:false = import되지 않은 export들을 정리해줌 (트리쉐이킹)
+            ],
           },
         },
       },
@@ -27,9 +38,23 @@ module.exports = {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
+      // {
+      //   test: /\.html$/,
+      //   use: [
+      //     {
+      //       loader: "html-loader",
+      //       options: { attrs: ["img:src"] }
+      //     }
+      //   ]
+      // },
+      {
+        test: /\.(png|jpg)$/,
+        use: ["file-loader"],
+      },
     ],
   },
   plugins: [
+    // new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: "src/index.html", // html 파일도 같이 bundle
     }),

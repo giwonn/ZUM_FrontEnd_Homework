@@ -1,6 +1,11 @@
-import './style.css';
-import Template from './components/Template.js';
+// require("babel-register")
+// require("/server.js")
+// require("babel-runtime/regenerator")
+// require("webpack-hot-middleware/client?reload=true")
+// require('./index.html')
+import './css/index.css';
+import Home from './components/Home.js';
+
 
 const app = document.getElementById('app');
-const template = new Template(app);
-template.setState({title : "Hello", description: "World"});
+const home = new Home(app, {title: "Hello", description: "World"});

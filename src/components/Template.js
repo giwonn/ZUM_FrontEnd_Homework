@@ -1,4 +1,4 @@
-import Component from './core/Components.js';
+import Component from './core/Component.js';
 
 class Template extends Component {
 
