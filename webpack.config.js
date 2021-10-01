@@ -1,12 +1,11 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   mode: "development",
   devtool: "source-map", // 개발자 모드에서 원본 코드처럼 볼 수 있음
-  entry: "./src/app.js",
+  entry: "./src/index.js",
   output: {
     filename: "app.js",
     path: path.resolve(__dirname, "public"),
