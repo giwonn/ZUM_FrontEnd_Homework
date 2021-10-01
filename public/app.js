@@ -348,11 +348,6 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./css/index.css */ "./src/css/index.css");
 /* harmony import */ var _components_Home_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Home.js */ "./src/components/Home.js");
-// require("babel-register")
-// require("/server.js")
-// require("babel-runtime/regenerator")
-// require("webpack-hot-middleware/client?reload=true")
-// require('./index.html')
 
 
 var app = document.getElementById('app');
