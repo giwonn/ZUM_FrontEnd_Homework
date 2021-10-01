@@ -1,12 +1,12 @@
 // express 설정
-const express = require("express");
-const server = express();
-
+const express = require('express');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
-const compiler = webpack(webpackConfig);
+const webpackDevMidddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
 
-const webpackDevMidddleware = require('webpack-dev-middleware'); // webpack 미들웨어 사용
+const server = express();
+const compiler = webpack(webpackConfig);
 
 const path = require("path");
 const port = 3000;
@@ -21,6 +21,8 @@ server.get('/', (req, res, next) => {
 server.use(webpackDevMidddleware(compiler, {
   publicPath: webpackConfig.output.publicPath,
 }));
+
+server.use(webpackHotMiddleware(compiler));
 
 // 확인 로그
 server.listen(port, () => {

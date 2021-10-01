@@ -1,23 +1,17 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpack = require('webpack');
 
+const isDev = process.env.NODE_ENV === 'development' // 모드 구분
 module.exports = {
-  mode: "development",
+  mode: isDev ? 'development' : 'production',
   devtool: "source-map", // 개발자 모드에서 원본 코드처럼 볼 수 있음
-  entry: "./src/index.js",
+  entry: isDev ? ['webpack-hot-middleware/client', './entry.js'] : "./src/index.js",
   output: {
     filename: "app.js",
     path: path.resolve(__dirname, "public"),
     publicPath: "http://localhost:3000/public" // 미들웨어 장소
-  },
-  devServer: {
-    contentBase: "public",
-    overlay: true,
-    stats: {
-      colors: true
-    },
-    hot: true
   },
   module: {
     rules: [
@@ -51,5 +45,6 @@ module.exports = {
       filename: 'style.css',
       chunkFilename: 'style.css',
     }),
+    new webpack.HotModuleReplacementPlugin()
   ],
 };
