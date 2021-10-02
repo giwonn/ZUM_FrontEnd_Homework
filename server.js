@@ -28,3 +28,21 @@ server.use(webpackHotMiddleware(compiler));
 server.listen(port, () => {
   console.log(`http://localhost:${port}`);
 });
+
+
+/**********************api 호출 **************************/
+
+// server.use(express.json());
+// server.use(express.urlencoded({extended: true}));
+
+// 랭킹 데이터
+// Request : 'GET /api/best'
+// Response : RankingContent[]
+// server.get('/api/best', (req, res) => {
+//   return require('./src/api/ranking.json');
+// });
+
+const api = require('./src/api.js');
+const rankingContent = api.get('/api/best');
+
+console.log(rankingContent);

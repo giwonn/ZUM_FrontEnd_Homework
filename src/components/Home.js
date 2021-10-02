@@ -8,6 +8,11 @@ class Home extends Component {
         return `
         <div id='header'></div>
     
+        <div id='sub_top4'>
+        </div>
+
+        <div id="top12"></div>
+
         <h1 class='title'>${title}</h1>
         <p>${description}</p>
         `;

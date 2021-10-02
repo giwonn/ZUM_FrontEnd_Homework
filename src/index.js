@@ -6,7 +6,7 @@ const app = document.getElementById('app');
 const home = new Home(app, {title: "Hello", description: "World"});
 
 if (module.hot) {
-    module.hot.accept('./components/Home.js', () => {
-      renderApp = require('./components/Home.js');
-    });
-  }
+  module.hot.accept('./index.js', () => {
+    renderApp = require('./index.js');
+  });
+}
