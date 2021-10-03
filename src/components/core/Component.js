@@ -1,8 +1,11 @@
+
+
 export default class Component {
     // protected : _변수
     // private : #변수
     _state; // 상태 (바뀌는 부분)
     _target; // 적용할 html 코드
+    _url = 'http://localhost:3000';
 
     constructor(target, state) { // 1. element, state, props를 받아서
         this._target = target;       // 2. target에 해당 element를 담아줌
@@ -16,7 +19,7 @@ export default class Component {
     mounted() {} // 만들어진 html에 자식 component를 마운트 해줌
 
     async render() { // 해당 Component를 렌더링해줌
-        this._target.innerHTML = await this.template();
+        this._target.innerHTML = typeof(this.template()) == 'object' ? await this.template() : this.template();
         this.mounted();
     }
 

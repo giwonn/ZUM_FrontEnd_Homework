@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const webpackConfig = require('../../webpack.config.js');
 const webpackDevMidddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
+const getApi = require('./getApi.js');
 
 const app = express();
 const compiler = webpack(webpackConfig);
@@ -29,10 +30,5 @@ app.listen(port, () => {
 });
 
 
-/**********************api 호출 **************************/
-
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-
-const api = require('./api.js');
-api(app);
+// api 호출 설정
+getApi(app);

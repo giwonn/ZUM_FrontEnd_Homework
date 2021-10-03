@@ -3,7 +3,7 @@ import Home from './components/Home.js';
 
 
 const app = document.getElementById('app');
-new Home(app, {title: "Hello", description: "World"});
+new Home(app);
 
 if (module.hot) {
   module.hot.accept('./index.js', () => {
