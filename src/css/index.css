@@ -1,9 +1,25 @@
+body {
+    margin: 0;
+}
 * {
-    border: 1px solid black;
+    /* outline: 1px solid #d9d9d9; */
     box-sizing: border-box;
 }
 
 #app {
     margin: auto;
-    max-width: 1200px;
+}
+
+ul {
+    list-style: none;
+    overflow: auto; /* overflow : 요소의 크기가 더 클 때 어떻게 보일지 선택함 */
+}
+
+li {
+    float: left;
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }
