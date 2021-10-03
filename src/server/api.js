@@ -1,3 +1,4 @@
+const app = require('./server.js');
 
 const api = (app) => {
     const reqJson = (req) => {
@@ -23,7 +24,7 @@ const api = (app) => {
         }
         return RankingContent;
     });
-    // ㅅㅏㅇㅅㅔㅍㅣㅇㅣㅈㅣ ㄷㅔㅇㅣㅌㅓ ㅈㅗㅁ ㅇㅣㅅㅏㅇㅎㅏㅁ
+    // 상세페이지 api 구현해야함 (미완성)
     app.get('/api/content/:category/:idx', (req, res) => {
         const category = req.params.category;
         const idx = req.params.idx;
