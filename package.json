@@ -5,9 +5,10 @@
   "main": "app.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
-    "start": "cross-env NODE_ENV=development node server.js"
+    "start": "cross-env NODE_ENV=development node ./src/server/server.js"
   },
   "dependencies": {
+    "axios": "^0.22.0",
     "core-js": "^3.18.1",
     "express": "^4.17.1"
   },
