@@ -1,5 +1,6 @@
 import Component from './core/Component';
 import Header from './common/Header';
+import Sub_Top4 from './home/Sub_Top4';
 
 class Home extends Component {
 
@@ -8,13 +9,15 @@ class Home extends Component {
         return `
         <div id='header'></div>
     
-        <div id='sub_top4'>
+        <div id="contents">
+            <div id='sub_top4'>
+            </div>
+
+            <div id="top12"></div>
+
+            <h1 class='title'>${title}</h1>
+            <p>${description}</p>
         </div>
-
-        <div id="top12"></div>
-
-        <h1 class='title'>${title}</h1>
-        <p>${description}</p>
         `;
     }
 
@@ -24,10 +27,13 @@ class Home extends Component {
         });
     }
 
-    mounted() {
+    async mounted() {
         const header = this._target.querySelector('#header');
+        const sub_top4 = this._target.querySelector('#sub_top4');
+        const category = ['life', 'food', 'travel', 'culture'];
 
         new Header(header);
+        new Sub_Top4(sub_top4, {category: category});
     }
 
 }
