@@ -7,7 +7,7 @@ const isDev = process.env.NODE_ENV === 'development' // 모드 구분
 module.exports = {
   mode: isDev ? 'development' : 'production',
   devtool: "source-map", // 개발자 모드에서 원본 코드처럼 볼 수 있음
-  entry: isDev ? ['webpack-hot-middleware/client', './entry.js'] : "./src/index.js",
+  entry: isDev ? ['webpack-hot-middleware/client', './src/server/entry.js'] : "./src/index.js",
   output: {
     filename: "app.js",
     path: path.resolve(__dirname, "public"),
