@@ -15,8 +15,8 @@ export default class Component {
     }
     mounted() {} // 만들어진 html에 자식 component를 마운트 해줌
 
-    render() { // 해당 Component를 렌더링해줌
-        this._target.innerHTML = this.template();
+    async render() { // 해당 Component를 렌더링해줌
+        this._target.innerHTML = await this.template();
         this.mounted();
     }
 
