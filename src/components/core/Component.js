@@ -7,11 +7,14 @@ export default class Component {
     _target; // 적용할 html 코드
     _url = 'http://localhost:3000';
 
-    constructor(target, state) { // 1. element, state, props를 받아서
-        this._target = target;       // 2. target에 해당 element를 담아줌
-        this.setState(state);           // 3-1. setState로 받아준 상태값을 넘겨주고
-        this.setEvent();                   // event 세팅은 첫 초기화 때 딱 한번만 이루어짐
+    constructor(target, state) {    // 1. element, state를 받아서
+        this._target = target;      // 2. target에 해당 element를 담아줌
+        this.init();                // 3. 내가 원하는 값으로 한번 초기화해줌
+        this.setState(state);       // 4-1. setState로 받아준 상태값을 넘겨주고
+        this.setEvent();
     }
+
+    init() {} // 필요한 데이터 처음에 일괄적으로 넣어줄 때 사용함
 
     template() { // 템플릿 리턴해줌
         return '';
@@ -19,8 +22,14 @@ export default class Component {
     mounted() {} // 만들어진 html에 자식 component를 마운트 해줌
 
     async render() { // 해당 Component를 렌더링해줌
-        this._target.innerHTML = typeof(this.template()) == 'object' ? await this.template() : this.template();
-        this.mounted();
+        if (typeof(this.template()) == 'object') {
+            this._target.innerHTML = await this.template();
+            this.mounted();
+            this.setEvent();
+        } else {
+            this._target.innerHTML = this.template();
+            this.mounted();
+        }
     }
 
     // event 제어 함수 (필요할 때만 구현함)
@@ -28,7 +37,7 @@ export default class Component {
 
     // state가 변경되면 변경 된 값으로 새로 렌더링함
     setState(newState) {
-        this._state = { ...this._state, ...newState }; // 3-2. state를 받아준 상태값으로 초기화 해줌
+        this._state = { ...this._state, ...newState }; // 4-2. state를 받아준 상태값으로 초기화 해줌
         this.template();
         this.render(this._state);                     
     }
