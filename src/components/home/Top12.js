@@ -22,7 +22,6 @@ class Top12 extends Component {
             `;
         }
         ul += '</ul></div>';
-        console.log(ul);
         return ul;
     }
 }
