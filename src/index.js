@@ -1,9 +1,9 @@
 import './css/index.css';
-import Home from './components/Home.js';
+import Index from './components/Index.js';
 
 
 const app = document.getElementById('app');
-new Home(app);
+new Index(app);
 
 if (module.hot) {
   module.hot.accept('./index.js', () => {
