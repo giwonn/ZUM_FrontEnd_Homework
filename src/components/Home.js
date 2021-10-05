@@ -44,7 +44,6 @@ class Home extends Component {
                 if (e.target.classList.contains('post-link')) { // post-link라는 class를 가지고 있으면
                     let idx = '';
                     if (e.target.classList.contains('post-idx')) {
-                        console.log("부모클릭함");
                         idx = e.target.dataset.idx;
                     } else {
                         idx = e.target.parentElement.dataset.idx;

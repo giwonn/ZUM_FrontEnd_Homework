@@ -1,5 +1,4 @@
 import Component from './core/Component';
-import Post from "./Post";
 
 class Post_card extends Component {
 
