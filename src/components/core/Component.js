@@ -14,7 +14,7 @@ export default class Component {
         this.setEvent();
     }
 
-    init() {} // 필요한 데이터 처음에 일괄적으로 넣어줄 때 사용함
+    init(newState) {} // 필요한 데이터 처음에 일괄적으로 넣어줄 때 사용함
 
     template() { // 템플릿 리턴해줌
         return '';
