@@ -1,5 +1,5 @@
 import Component from "./core/Component";
-import Post_card from './Post_card';
+import Post_Thumb from './Post_Thumb';
 
 // 카테고리별 TOP4 리스트 출력
 class Sub_Top4 extends Component {
@@ -21,7 +21,7 @@ class Sub_Top4 extends Component {
         for (let i=0; i<MAX; i++) {
             const li = document.createElement('li');
             const post = posts.appendChild(li);
-            new Post_card(post, {content: content[i]});
+            new Post_Thumb(post, {content: content[i]});
         }
     }
 

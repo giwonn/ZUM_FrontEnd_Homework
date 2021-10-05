@@ -1,4 +1,5 @@
 import Component from '/src/components/core/Component.js';
+import Category from '/src/page/Category.js';
 import zum from '/src/image/logo_zum.png';
 import hub from '/src/image/logo_hub.png';
 import '/src/css/header.css';
@@ -14,14 +15,20 @@ class Header extends Component {
         </div>
         <div class="navi">
             <ul>
-                ${category.map(item => `<li>${item}</li>`).join('')}
+                ${category.map(item => `<li class='menu'>${item}</li>`).join('')}
             </ul>
         </div>
         `;
     }
 
     setEvent() {
-        
+        const navi = this._target.querySelector('.navi');
+        const contents = this._target.parentElement.querySelector('#contents');
+        navi.addEventListener('click', (e) => {
+            if(e.target.classList.contains('menu')) {
+                new Category(contents);
+            }
+        });
     }
 
 }

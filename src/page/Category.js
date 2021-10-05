@@ -1,12 +1,11 @@
 import Component from '/src/components/core/Component';
-import Post_Card from '/src/components/Post_card';
+import Post_Thumb from '/src/components/Post_Thumb';
 
 class Category extends Component {
 
     template() {
         return `
         <div class='banner'>
-
         </div>
         <div class='category-list'>
             <ul>
@@ -23,7 +22,9 @@ class Category extends Component {
         const li = list.appendChild(li_el);
 
         for (let i=0; i<12; i++) {
-            new Post_Card(li);
+            new Post_Thumb(li);
         }
     }
 }
+
+export default Category;

@@ -1,6 +1,6 @@
 import Component from './core/Component';
 
-class Post_card extends Component {
+class Post_Thumb extends Component {
 
     template() {
         const content = this._state.content;
@@ -17,4 +17,4 @@ class Post_card extends Component {
     }
 }
 
-export default Post_card;
+export default Post_Thumb;
