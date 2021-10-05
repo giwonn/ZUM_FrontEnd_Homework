@@ -14,10 +14,14 @@ class Header extends Component {
         </div>
         <div class="navi">
             <ul>
-                ${category.map((item, count) => `<li>${item}</li>`).join('')}
+                ${category.map(item => `<li>${item}</li>`).join('')}
             </ul>
         </div>
         `;
+    }
+
+    setEvent() {
+        
     }
 
 }

@@ -1,5 +1,5 @@
 import Component from './core/Component';
-import Home from './Home';
+import Home from '../page/Home';
 
 class Post extends Component {
 

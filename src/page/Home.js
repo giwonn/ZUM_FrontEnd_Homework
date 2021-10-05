@@ -1,7 +1,7 @@
-import Component from './core/Component';
-import Sub_Top4 from './home/Sub_Top4';
-import Top12 from './home/Top12';
-import Post from './Post';
+import Component from '../components/core/Component';
+import Sub_Top4 from '../components/Sub_Top4';
+import Top12 from '../components/Top12';
+import Post from '../components/Post';
 
 import '../css/sub_top4.css';
 import '../css/top12.css';
@@ -10,7 +10,7 @@ class Home extends Component {
 
     init() {
         const category = ['라이프', '푸드', '여행', '컬처'];
-        this._state = { ...this._state, ...{category: category} }; // 4-2. state를 받아준 상태값으로 초기화 해줌
+        this._state = { category: category }; // 4-2. state를 받아준 상태값으로 초기화 해줌
     }
 
     template() {
@@ -36,21 +36,23 @@ class Home extends Component {
         new Top12(top12);
     }
 
-    // 이벤트 위임
     setEvent() {
-        const posts = this._target.querySelector('.posts-wrap');
+        this.getPost('#sub_top4'); // post 카드를 눌렀을 때 페이지 요청
+        this.getPost('#top12');
+    }
+
+    getPost(className) { // post 카드를 눌렀을 때 페이지 요청
+        const posts = this._target.querySelector(className);
         if (posts !== null) {
             posts.addEventListener('click', (e) => {
-                if (e.target.classList.contains('post-link')) { // post-link라는 class를 가지고 있으면
-                    let idx = '';
+                if (e.target.classList.contains('post-link')) {
                     if (e.target.classList.contains('post-idx')) {
-                        idx = e.target.dataset.idx;
+                        new Post(document.getElementById('contents'), {idx: e.target.dataset.idx});
                     } else {
-                        idx = e.target.parentElement.dataset.idx;
+                        new Post(document.getElementById('contents'), {idx: e.target.parentElement.dataset.idx});
                     }
-                    new Post(document.getElementById('contents'), {idx: idx}); // 해당 페이지 요청
                 }
-            })
+            });
         }
     }
 

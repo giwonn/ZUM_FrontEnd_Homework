@@ -21,7 +21,7 @@
 #top12 li:hover {
     background-color: #5c82a7;
 }
-#top12 li:hover a {
+#top12 li:hover .post-idx {
     color: white;
 }
 #top12 li:hover .sub_content {

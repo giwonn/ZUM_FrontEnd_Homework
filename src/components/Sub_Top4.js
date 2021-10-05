@@ -1,6 +1,5 @@
-import Component from "../core/Component";
-import Post from "../Post";
-import Post_card from '../Post_card';
+import Component from "./core/Component";
+import Post_card from './Post_card';
 
 // 카테고리별 TOP4 리스트 출력
 class Sub_Top4 extends Component {

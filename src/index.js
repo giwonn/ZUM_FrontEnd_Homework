@@ -1,6 +1,5 @@
 import './css/index.css';
-import Index from './components/Index.js';
-
+import Index from './page/Index.js';
 
 const app = document.getElementById('app');
 new Index(app);

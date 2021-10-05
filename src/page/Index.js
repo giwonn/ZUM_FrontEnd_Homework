@@ -1,5 +1,5 @@
-import Component from './core/Component';
-import Header from './common/Header';
+import Component from '../components/core/Component';
+import Header from '../components/common/Header';
 import Home from './Home';
 
 import '../css/home.css';
@@ -22,6 +22,7 @@ class Index extends Component {
         new Header(header);
         new Home(contents);
     }
+
 
 }
 
