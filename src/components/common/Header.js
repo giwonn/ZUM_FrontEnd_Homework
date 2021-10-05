@@ -1,5 +1,8 @@
 import Component from '/src/components/core/Component.js';
-import Category from '/src/page/Category.js';
+import SubPage from '/src/page/SubPage.js';
+import Home from '/src/page/Home.js'
+import Post_Thumb from '/src/components/Post_Thumb.js';
+
 import zum from '/src/image/logo_zum.png';
 import hub from '/src/image/logo_hub.png';
 import '/src/css/header.css';
@@ -8,7 +11,7 @@ class Header extends Component {
 
     template() {
         const category = ['HOME', '라이프', '푸드', '여행', '컬쳐', '즐겨찾기'];
-        const menu = {'HOME':'HOME', '라이프': 'life', '푸드': 'food', '여행': 'travel', '컬쳐': 'culture', '즐겨찾기': 'favorite'};
+        const menu = {'HOME':'home', '라이프': 'life', '푸드': 'food', '여행': 'travel', '컬쳐': 'culture', '즐겨찾기': 'favorite'};
         
         return `
         <div id="logo">
@@ -24,22 +27,50 @@ class Header extends Component {
     }
 
     setEvent() {
-        const menu = {'HOME':'home', '라이프': 'life', '푸드': 'food', '여행': 'travel', '컬쳐': 'culture', '즐겨찾기': 'favorite'};
         const navi = this._target.querySelector('.navi');
         const contents = this._target.parentElement.querySelector('#contents');
+
         navi.addEventListener('click', (e) => {
             if(e.target.classList.contains('menu')) {
-                switch(e.target.classList) {
+                switch(e.target.dataset.cate) {
                     case 'home':
-                        new Home(content);
+                        // if (contents.childNodes[1].classList.contains('subpage')) {
+                        //     window.removeEventListener('scroll', this.infinityScroll);
+                        // }
+                        new Home(contents, {infinityScroll: this.infinityScroll});
                         break;
                     case 'favorite':
+                        // if (contents.childNodes[1].classList.contains('subpage')) {
+                        //     window.removeEventListener('scroll', this.infinityScroll);
+                        // }
                         break;
                     default:
-                        new Category(contents, {category: e.target.dataset.cate});
+                        new SubPage(contents, {category: e.target.dataset.cate, infinityScroll: this.infinityScroll});
+                        // window.addEventListener('scroll', this.infinityScroll);
                 }
             }
         });
+    }
+
+    infinityScroll() {
+        const contents = this._target.parentElement.querySelector('#contents');
+        if (contents.childNodes[1].classList.contains('subpage')) {
+            const scrollLength = window.innerHeight + window.scrollY;
+            // 게시물 출력을 다 했거나, 스크롤이 밑에 닿으면
+            if ((this._state.max > this._state.current) && (scrollLength >= document.body.offsetHeight)) {
+                const list = this._target.querySelector('.category-list > ul');
+                // 게시물 최대 12개를 더 이어붙여줌
+                for (let i=0; i<12; i++) {
+                    const li_el = document.createElement('li');
+                    const li = list.appendChild(li_el);
+
+                    new Post_Thumb(li, {content: this._state.content[this._state.current] });
+                    this._state.current++;
+
+                    if (this._state.max === this._state.current) break;
+                }
+            }
+        }
     }
 
 }
