@@ -3,7 +3,7 @@ import Component from './core/Component';
 class Post_Thumb extends Component {
 
     template() {
-        const content = this._state.content;
+        const content = this._props.content;
         return `
         <div class="post-wrap">
             <div class="post-idx post-link" data-idx='${content.idx}'>

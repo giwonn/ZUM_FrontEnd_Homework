@@ -14,15 +14,17 @@ class Category extends Component {
         `;
     }
 
-    mounted() {
-        const list = this._target.querySelector('category-list > ul');
+    async renderChildren() {
+        const list = this._target.querySelector('.category-list > ul');
+        const content = await fetch(`${this._url}/api/content/${this._props.category}`).then(resp => resp.json());
 
-        const li_el = createElement('li');
-
-        const li = list.appendChild(li_el);
+        
 
         for (let i=0; i<12; i++) {
-            new Post_Thumb(li);
+            const li_el = document.createElement('li');
+            const li = list.appendChild(li_el);
+
+            new Post_Thumb(li, {content: content[i]});
         }
     }
 }

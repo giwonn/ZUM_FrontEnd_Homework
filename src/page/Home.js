@@ -10,7 +10,7 @@ class Home extends Component {
 
     init() {
         const category = ['라이프', '푸드', '여행', '컬처'];
-        this._state = { category: category }; // 4-2. state를 받아준 상태값으로 초기화 해줌
+        this._props = { category: category }; // 4-2. state를 받아준 상태값으로 초기화 해줌
     }
 
     template() {
@@ -22,10 +22,10 @@ class Home extends Component {
         `;
     }
 
-    async mounted() {
+    async renderChildren() {
         const sub_top4 = this._target.querySelector('#sub_top4');
         const top12 = this._target.querySelector('#top12');
-        const category = this._state.category;
+        const category = this._props.category;
 
         category.forEach(cate => {
             const divEl = document.createElement('div');

@@ -15,7 +15,7 @@ class Index extends Component {
         `;
     }
 
-    async mounted() {
+    async renderChildren() {
         const header = this._target.querySelector('#header');
         const contents = this._target.querySelector('#contents');
 

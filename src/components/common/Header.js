@@ -8,6 +8,8 @@ class Header extends Component {
 
     template() {
         const category = ['HOME', '라이프', '푸드', '여행', '컬쳐', '즐겨찾기'];
+        const menu = {'HOME':'HOME', '라이프': 'life', '푸드': 'food', '여행': 'travel', '컬쳐': 'culture', '즐겨찾기': 'favorite'};
+        
         return `
         <div id="logo">
             <img class="header_logo" src="${zum}">
@@ -15,18 +17,27 @@ class Header extends Component {
         </div>
         <div class="navi">
             <ul>
-                ${category.map(item => `<li class='menu'>${item}</li>`).join('')}
+                ${category.map(item => `<li class='menu' data-cate='${menu[item]}'>${item}</li>`).join('')}
             </ul>
         </div>
         `;
     }
 
     setEvent() {
+        const menu = {'HOME':'home', '라이프': 'life', '푸드': 'food', '여행': 'travel', '컬쳐': 'culture', '즐겨찾기': 'favorite'};
         const navi = this._target.querySelector('.navi');
         const contents = this._target.parentElement.querySelector('#contents');
         navi.addEventListener('click', (e) => {
             if(e.target.classList.contains('menu')) {
-                new Category(contents);
+                switch(e.target.classList) {
+                    case 'home':
+                        new Home(content);
+                        break;
+                    case 'favorite':
+                        break;
+                    default:
+                        new Category(contents, {category: e.target.dataset.cate});
+                }
             }
         });
     }

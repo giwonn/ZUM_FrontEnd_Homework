@@ -26,10 +26,10 @@ class Post extends Component {
         });
     }
 
-    async mounted() {
+    async renderChildren() {
         const post_title = this._target.querySelector('.post_title');
         const post_content = this._target.querySelector('.post_content');
-        const { idx } = this._state;
+        const { idx } = this._props;
         
         const contents = await fetch(`${this._url}/api/detail/${idx}`).then(resp => resp.json());
 

@@ -7,14 +7,14 @@ class Sub_Top4 extends Component {
     template() {
         return `
         <div class='posts-wrap'>
-            <h3 class='category_name'>#${this._state.category}</h3>
+            <h3 class='category_name'>#${this._props.category}</h3>
             <ul class='posts'></ul>
         </div>`;
     }
 
-    async mounted() {
+    async renderChildren() {
         const map = {"컬처": "culture", "푸드": "food", '라이프': 'life', '여행': 'travel'};
-        const content = await fetch(`${this._url}/api/content/${map[this._state.category]}`).then(resp => resp.json());
+        const content = await fetch(`${this._url}/api/content/${map[this._props.category]}`).then(resp => resp.json());
         const posts = this._target.querySelector('.posts');
         const MAX = 4; // 카테고리 별 갯수
 
