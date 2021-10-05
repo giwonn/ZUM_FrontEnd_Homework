@@ -1,6 +1,5 @@
 const e = require('express');
-const playwright = require('playwright');
-const chromium = playwright.chromium;
+const puppeteer = require('puppeteer');
 
 const getApi = (app) => {
     const getList = (filePath) => {
@@ -24,28 +23,23 @@ const getApi = (app) => {
         const url = req.params.url;
         let contents = {};
 
-        const browser = await chromium.launch();
+        // 개발모드일때만 headless: false
+        const browser = await puppeteer.launch({ headless: process.env.NODE_ENV === 'production' });
         const page = await browser.newPage();
         await page.goto(`https://hub.zum.com/post/${url}`);
 
-        const post = await page.$$('.d_container');
-
-        for (let element of post) {
-            const article_header = await element.$('.article_header');
-            const d_article = await element.$('.d_article');
-            
-            const title = await article_header.innerHTML();
-            const content = await d_article.innerHTML();
-
-            contents.title = title;
-            contents.content = content;
-        }
-
-        await browser.close();
+        // 타이틀, 기사내용의 html을 스크래핑해줌
+        const title = await page.$eval('.article_header', el => el.innerHTML);
+        const content = await page.$eval('.d_article', el => el.innerHTML);
         
+        // 브라우저 종료
+        await browser.close();
+
+        contents.title = title;
+        contents.content = content;
+
         return resp.send(contents);
     });
 };
-
 
 module.exports = getApi;
