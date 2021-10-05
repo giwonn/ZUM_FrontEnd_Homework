@@ -2,7 +2,7 @@ import Component from "./core/Component";
 import Post_Thumb from './Post_Thumb';
 
 // 카테고리별 TOP4 리스트 출력
-class Sub_Top4 extends Component {
+class Cate3_Top4 extends Component {
 
     template() {
         return `
@@ -27,4 +27,4 @@ class Sub_Top4 extends Component {
 
 }
 
-export default Sub_Top4;
+export default Cate3_Top4;

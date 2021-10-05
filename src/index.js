@@ -1,8 +1,8 @@
 import './css/index.css';
-import Index from './page/Index.js';
+import Main from './page/Main.js';
 
 const app = document.getElementById('app');
-new Index(app);
+new Main(app);
 
 if (module.hot) {
   module.hot.accept('./index.js', () => {

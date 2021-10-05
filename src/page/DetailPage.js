@@ -1,7 +1,7 @@
-import Component from './core/Component';
-import Home from '../page/Home';
+import Component from '../components/core/Component';
+import Home from './Home';
 
-class Post extends Component {
+class DetailPage extends Component {
 
     template() {
         return `
@@ -44,4 +44,4 @@ class Post extends Component {
     }
 }
 
-export default Post;
+export default DetailPage;
