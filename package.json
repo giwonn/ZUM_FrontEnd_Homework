@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
-    "start": "cross-env NODE_ENV=development node ./src/server/server.js"
+    "start": "cross-env NODE_ENV=production node ./src/server/server.js"
   },
   "dependencies": {
     "@babel/runtime": "^7.15.4",

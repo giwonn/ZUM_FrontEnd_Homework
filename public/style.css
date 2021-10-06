@@ -24,6 +24,13 @@ a {
     color: black;
 }
 
+#header {
+    position: sticky;
+    top : 0;
+    z-index: 2;
+    background: white;
+}
+
 .post-link {
     color:black;
     text-decoration: none;
@@ -67,6 +74,8 @@ a {
 }
 
 .sub_writer {
+    width: 90%;
+    float: left;
     font-size: 9pt;
     color:lightgray;
 }
