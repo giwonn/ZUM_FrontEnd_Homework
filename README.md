@@ -1,17 +1,5 @@
 # ZUM_FrontEnd_Homework
-기한이 짧으므로 하루에 요구사항 2개씩 끝내기
-<br>
 
-## 기술 스택
-- Front-end
-  - vanilla javascript
-  - webpack
-  - babel
-- back-end
-  - node.js
-  - express.js
-
-## 필수 요구사항
 ### Front-end
 - **프레임워크 및 라이브러리 사용 금지**
 - ~~본인에게 편한 번들러(webpack) 사용하여 개발환경 구축~~ **(완료)**
@@ -30,14 +18,10 @@
 - ~~상세 페이지는 **원본 URL을 스크래핑**하여 사용 **(이에 필요한 라이브러리는 자유롭게 선택하여 사용)**~~ **(완료)**
 - 이미 조회한 데이터는 캐싱을 통해 관리 **(최대한 간단하게 로컬 캐시로 구현할 것)**
 
-## 선택적 요구사항
-- TypeScript 사용
-- 가상돔 만들어서 사용하기 혹은 DIFF 알고리즘 이용하기
-- **Observer Pattern** 이용하여 State가 변경될 때 자동 렌더링 구현
-- frontend 코드를 webpack으로 빌드하여 production code 생성하기
-- 이미지에 Lazy Loading 사용하기
-- webpack에 scss 연도하여 사용하기
 
 ## 현재 발생하는 issue
 - 상세페이지 스크래핑하면 중간에 이미지가 제대로 넘어오지 않습니다. 스크래핑이 원본HTML이랑 다르게 넘어옵니다.
 - Router 구현이 안되어있고, 전체적인 구현이 아직 부족하여 뒤로가기나 새로고침시에는 메인 페이지로 이동됩니다.
+- 즐겨찾기를 localStorage에 담아놓았으나, 즐겨찾기 페이지는 아직 구현되지 않았습니다.
+
+
