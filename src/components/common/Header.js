@@ -9,6 +9,10 @@ import '/src/css/header.css';
 
 class Header extends Component {
 
+    init() {
+        this.state = { current : 12 }
+    }
+
     template() {
         const category = ['HOME', '라이프', '푸드', '여행', '컬쳐', '즐겨찾기'];
         const menu = {'HOME':'home', '라이프': 'life', '푸드': 'food', '여행': 'travel', '컬쳐': 'culture', '즐겨찾기': 'favorite'};
@@ -34,26 +38,21 @@ class Header extends Component {
             if(e.target.classList.contains('menu')) {
                 switch(e.target.dataset.cate) {
                     case 'home':
-                        // if (contents.childNodes[1].classList.contains('subpage')) {
-                        //     window.removeEventListener('scroll', this.infinityScroll);
-                        // }
                         new Home(contents, {infinityScroll: this.infinityScroll});
                         break;
                     case 'favorite':
-                        // if (contents.childNodes[1].classList.contains('subpage')) {
-                        //     window.removeEventListener('scroll', this.infinityScroll);
-                        // }
                         break;
                     default:
-                        new SubPage(contents, {category: e.target.dataset.cate, infinityScroll: this.infinityScroll});
-                        // window.addEventListener('scroll', this.infinityScroll);
+                        new SubPage(contents, {category: e.target.dataset.cate, title: e.target.innerText, infinityScroll: this.infinityScroll});
                 }
             }
         });
     }
 
+    // 상세 페이지 무한 스크롤 구현
     infinityScroll() {
         const contents = this._target.parentElement.querySelector('#contents');
+
         if (contents.childNodes[1].classList.contains('subpage')) {
             const scrollLength = window.innerHeight + window.scrollY;
             // 게시물 출력을 다 했거나, 스크롤이 밑에 닿으면
