@@ -1,5 +1,9 @@
 # ZUM_FrontEnd_Homework
 
+## 코드리뷰
+[https://github.com/JunilHwang/zum-front-codereview/pull/20](https://github.com/JunilHwang/zum-front-codereview/pull/20)
+
+## 필수 요구사항
 ### Front-end
 - **프레임워크 및 라이브러리 사용 금지**
 - ~~본인에게 편한 번들러(webpack) 사용하여 개발환경 구축~~ **(완료)**
